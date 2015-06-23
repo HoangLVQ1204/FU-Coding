@@ -1,0 +1,71 @@
+{% extends "../temp.html" %}
+{% block subtitle %}
+    Danh sách bài viết
+{% endblock %}
+{% block breadcrumb %}
+    <li>
+        <i class="fa fa-file"></i> <a href="index.html"> Bài viết</a>
+    </li>
+    <li class="active">
+        Danh sách bài viết
+    </li>
+{% endblock %}
+{% block content %}
+     <div class="row">
+         <div class="col-lg-6">
+            <button type="button" class="btn btn-sm btn-primary" >Viết bài mới</button>
+         </div>
+     </div>    
+     <div class="row">
+                  <div class="col-lg-6">
+                        <div>
+                        {% if message %}
+                            <label>
+                                {{message}}
+                            </label>
+                        {% endif %}
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Tiêu đề</th>
+                                        <th>Tác giả</th>
+                                        <th>Chuyên mục</th>
+                                        <th>Thẻ</th>
+                                        <th>Ngày</th>
+                                        <th>Tác vụ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for post in posts %}
+                                    <tr class="active">
+                                        <td>{{post.title}}</td>
+                                        <td>{{post.author}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>{{post.time}}</td>
+                                        <td>
+                                            <ul class="list-inline">
+                                                <li><button type="button" class="btn btn-primary" >sửa</button></li>
+                                                <li><button type="button" class="btn btn-primary" >Xoá</button></li>
+                                            </ul>    
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+ 
+    </div>
+    
+    <script>
+    $(document).ready(function() {
+        
+        
+        
+    });
+    </script>
+{% endblock %}

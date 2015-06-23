@@ -1,0 +1,53 @@
+{% extends "../temp.html" %}
+{% block head %}
+    <link href="/libs/css/summernote.css" rel="stylesheet">
+    <script src="/libs/js/summernote.min.js"></script>
+{% endblock %}
+{% block subtitle %}
+    Viết bài mới
+{% endblock %}
+{% block breadcrumb %}
+    <li>
+        <i class="fa fa-file"></i> <a href="index.html"> Bài viết</a>
+    </li>
+    <li class="active">
+        Viết bài mới
+    </li>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-6">
+            <form role="form" method="POST" action="">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Enter Title" name="title">
+                </div>
+                <div class="form-group">
+                    <textarea name="content" hidden="true" id="txtContent"></textarea>
+                    <div id="summernote"></div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-sm btn-primary" >Update</button>
+                </div>
+                <label>{{message}}</label>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+    $(document).ready(function() {
+        
+        $('#summernote').summernote({
+            height: 300,
+            minHeight: null,
+            maxHeight: null,
+            focus: true
+        });
+        
+        $("form").submit(function(){
+            var sHTML = $('#summernote').code();
+            $("#txtContent").val(sHTML);
+        });
+        
+    });
+    </script>
+{% endblock %}

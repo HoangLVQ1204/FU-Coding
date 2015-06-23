@@ -48,10 +48,10 @@ nunjucks.configure('views',{
 /* === CONFIG ROUTERS === */
 
 // Frond-end
-app.use('/', require('./app/routes/front-end-router'));
+app.use('/', require('./app/routes/frontend-router'));
 
 // Back-end
-app.use('/admin', require('./app/routes/back-end-router'));
+app.use('/admin', require('./app/routes/backend-router'));
 
 /* === LAUNCH === */
 app.listen(port);

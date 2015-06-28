@@ -49,6 +49,7 @@ nunjucks.configure('views',{
 
 // Frond-end
 app.use('/', require('./app/routes/frontend-router'));
+app.use('/question', require('./app/routes/question-router'));
 
 // Back-end
 app.use('/admin', require('./app/routes/backend-router'));

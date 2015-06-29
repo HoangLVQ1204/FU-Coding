@@ -22,9 +22,37 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body style="margin: 0 200px">
     <div class="page-header">
         <h1>Bạn muốn đặt câu hỏi gì?</h1>
     </div>
+    
+    <form role="form" method="post">
+        <div class="form-group">
+            <label for="title">Tiêu đề</label>
+            <input type="text" class="form-control" id="title" name="title"
+                   placeholder="Chủ đề cho câu hỏi của bạn là gì?" />            
+            <br/>
+            <label for="content">Nội dung</label>
+            <textarea class="form-control" id="content" rows="20" cols="80" 
+                      name="content"></textarea>
+            <br/>
+            <label for="tag">Tag</label>
+            <input type="text" class="form-control" id="tag" name="tag"
+                   placeholder="Các tag cách nhau bởi dấu phẩy" />            
+        </div>                
+        <button type="submit" class="btn btn-default">Đặt câu hỏi</button>
+    </form>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 </body>
 </html>

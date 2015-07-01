@@ -13,18 +13,27 @@
     <link href="/libs/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
     <link href="/libs/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE  -->
-    <link href="/libs/css/style.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->    
     <link rel="stylesheet" type="text/css" href="/libs/css/post-question.css" />
+    <!-- Style for Tags input plugin -->    
+    <link rel="stylesheet" type="text/css" href="/libs/css/bootstrap-tagsinput.css" />
+
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <!-- Script for Markdown Editor -->
     <script type="text/javascript" src="/libs/js/Markdown.Converter.js"></script>
     <script type="text/javascript" src="/libs/js/Markdown.Editor.js"></script>
     <script type="text/javascript" src="/libs/js/Markdown.Sanitizer.js"></script>
+
+    <!-- Script for Tags input plugin -->
+    <script type="text/javascript" src="/libs/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/libs/js/bootstrap-tagsinput.js"></script>    
+
 </head>
 <body style="margin: 0 200px">
     <div class="page-header">
@@ -43,11 +52,12 @@
             </div>
             <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
 
-            <label for="tag">Tag</label>
-            <input type="text" class="form-control" id="tag" name="tag"
-                   placeholder="Các tag cách nhau bởi dấu phẩy" />            
+            <input type="text" data-role="tagsinput" placeholder="Tags..." id="tags-input" />
+            <input type="hidden" id="tags" name="tags" /> 
         </div>                
-        <button type="submit" class="btn btn-default">Đặt câu hỏi</button>        
+        <button type="submit" class="btn btn-default" onclick="$('#tags').val($('#tags-input').val());">
+            Đặt câu hỏi
+        </button>        
     </form>
     <script type="text/javascript">
     (function () {

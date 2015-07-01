@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var getSanitizingConverter = require("../../public/js/Markdown.Sanitizer").getSanitizingConverter,
+	saneConv = getSanitizingConverter();
 
 
 router.get('/ask', function(req, res) {
@@ -7,7 +9,10 @@ router.get('/ask', function(req, res) {
 });
 
 router.post('/ask', function(req, res) {    
-    res.json(req.body);
+    res.write(JSON.stringify(req.body));
+    res.write("\nMARKDOWN\n");
+    res.write(saneConv.makeHtml(req.body.content));
+    res.end();
 });
 
 module.exports = router;

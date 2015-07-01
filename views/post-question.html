@@ -15,12 +15,16 @@
     <link href="/libs/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
     <link href="/libs/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/libs/css/post-question.css" />
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="/libs/js/Markdown.Converter.js"></script>
+    <script type="text/javascript" src="/libs/js/Markdown.Editor.js"></script>
+    <script type="text/javascript" src="/libs/js/Markdown.Sanitizer.js"></script>
 </head>
 <body style="margin: 0 200px">
     <div class="page-header">
@@ -32,27 +36,33 @@
             <label for="title">Tiêu đề</label>
             <input type="text" class="form-control" id="title" name="title"
                    placeholder="Chủ đề cho câu hỏi của bạn là gì?" />            
-            <br/>
-            <label for="content">Nội dung</label>
-            <textarea class="form-control" id="content" rows="20" cols="80" 
-                      name="content"></textarea>
-            <br/>
+
+            <div class="wmd-panel">
+                <div id="wmd-button-bar"></div>
+                <textarea class="wmd-input" id="wmd-input" name="content"></textarea>
+            </div>
+            <div id="wmd-preview" class="wmd-panel wmd-preview"></div>
+
             <label for="tag">Tag</label>
             <input type="text" class="form-control" id="tag" name="tag"
                    placeholder="Các tag cách nhau bởi dấu phẩy" />            
         </div>                
-        <button type="submit" class="btn btn-default">Đặt câu hỏi</button>
+        <button type="submit" class="btn btn-default">Đặt câu hỏi</button>        
     </form>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <script type="text/javascript">
+    (function () {
+        var converter1 = Markdown.getSanitizingConverter();
+
+        converter1.hooks.chain("preBlockGamut", function (text, rbg) {
+            return text.replace(/^ {0,3}""" *\n((?:.*?\n)+?) {0,3}""" *$/gm, function (whole, inner) {
+                return "<blockquote>" + rbg(inner) + "</blockquote>\n";
+            });
+        });
+
+        var editor1 = new Markdown.Editor(converter1);
+
+        editor1.run();        
+    })();
+    </script>
 </body>
 </html>

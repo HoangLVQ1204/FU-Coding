@@ -5,7 +5,6 @@ var getSanitizingConverter = require("../../public/js/Markdown.Sanitizer").getSa
 
 var Post = require('../models/post.js');
 
-
 router.get('/ask', function(req, res) {
     res.render('post-question.html');
 });
@@ -34,7 +33,7 @@ router.post('/ask', function(req, res) {
 router.get('/:id', function (req, res) {
 	// res.write("Read " + req.params.id);
 	// res.end(typeof req.params.id);
-	Post.findById(req.params.id, 'title content tags', function(err, question) {
+	Post.findById(req.params.id, 'title content tags time', function(err, question) {
 		res.render('question.html', {question: question});
 	})
 });

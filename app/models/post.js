@@ -12,4 +12,12 @@ var postSchema = mongoose.Schema({
     comments: [],
 });
 
+postSchema.pre('save', function(next) {
+    now = new Date();
+    if (!this.time) {
+        this.time = now;
+    }
+    next();
+});
+
 module.exports = mongoose.model('Post',postSchema);

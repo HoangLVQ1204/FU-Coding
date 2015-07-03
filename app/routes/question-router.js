@@ -30,6 +30,17 @@ router.post('/ask', function(req, res) {
  	})
 });
 
+router.get('/all', function(req, res) {
+	Post.find({}, function(err, result) {
+		if (err) {
+			res.end("Hic hic: " + err);
+		} else {
+			result.sort({'time': 'desc'});
+			res.render('list-questions.html', {questions: result});
+		}
+	})
+});
+
 router.get('/:id', function (req, res) {
 	// res.write("Read " + req.params.id);
 	// res.end(typeof req.params.id);

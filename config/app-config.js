@@ -24,7 +24,7 @@ var config = {
         callbackURL : 'http://localhost:3000/auth/facebook/callback',
         profileFields : ['id', 'displayName', 'link', 'gender', 'photos', 'emails']
     },
-    ignoredAuthenUrl : 
+    ignoredAuthenUrl :
     [
         '/auth/login',
         '/auth/facebook',

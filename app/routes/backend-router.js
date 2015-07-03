@@ -5,8 +5,8 @@ var router = express.Router();
 router.get('/list',function(req,res){
          var posts = Post.find({},function(err,result){
             result = result.sort({'time' : 'desc'});
-            res.render('admin/post/listposts.html',{posts:result, message: req.flash('info')}); 
-         });   
+            res.render('admin/post/listposts.html',{posts:result, message: req.flash('info')});
+         });
 });
 
 router.get('/addnew',function(req,res){

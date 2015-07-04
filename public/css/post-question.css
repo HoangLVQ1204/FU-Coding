@@ -6,8 +6,7 @@ blockquote {
 
 .wmd-panel
 {
-	margin: 20px auto;
-	min-width: 500px;
+	width: 50%;
 }
 
 .wmd-button-bar
@@ -20,7 +19,6 @@ blockquote {
 {
 	height: 300px;
 	width: 100%;
-	background-color: Gainsboro;
 	border: 1px solid DarkGray;
 }
 
@@ -115,4 +113,26 @@ blockquote {
 	font-family: trebuchet MS, helvetica, sans-serif;
 	font-size: 0.8em;
 	font-weight: bold;
+}
+
+#editor {
+	position: fixed;
+	bottom: 0px;
+	display: none;
+	background-color: Gainsboro;
+	width: 100%;
+	height: 50%;
+}
+
+#main-content {
+	width: 80%;
+	margin: auto;
+}
+
+#form-title {
+	width: 50%;
+}
+
+.question {
+	margin: 10px 0;
 }
